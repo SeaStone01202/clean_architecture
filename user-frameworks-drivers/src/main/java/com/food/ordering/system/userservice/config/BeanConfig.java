@@ -1,6 +1,7 @@
 package com.food.ordering.system.userservice.config;
 
 import com.food.ordering.system.userservice.adapters.mapper.UserDataMapper;
+import com.food.ordering.system.userservice.adapters.output.repository.FakeUserRepository;
 import com.food.ordering.system.userservice.adapters.output.repository.UserRepositoryImpl;
 import com.food.ordering.system.userservice.application.port.input.UserUseCase;
 import com.food.ordering.system.userservice.application.service.UserApplicationService;
@@ -16,13 +17,19 @@ public class BeanConfig {
         return new UserDataMapper();
     }
 
-    @Bean
-    public UserRepository userRepository() {
-        return new UserRepositoryImpl(); // Sẽ thay bằng JPA sau
-    }
+//    @Bean
+//    public UserRepository userRepository() {
+//        return new UserRepositoryImpl(); // Sẽ thay bằng JPA sau
+//    }
 
     @Bean
     public UserUseCase userUseCase(UserRepository userRepository) {
         return new UserApplicationService(userRepository);
     }
+
+    @Bean
+    public UserRepository userRepository() {
+        return new FakeUserRepository(); // Tạm thời dùng bản fake
+    }
+
 }

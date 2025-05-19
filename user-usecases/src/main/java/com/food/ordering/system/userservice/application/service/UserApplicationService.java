@@ -6,6 +6,7 @@ import com.food.ordering.system.userservice.domain.port.output.repository.UserRe
 import com.food.ordering.system.userservice.domain.valueobject.UserId;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class UserApplicationService implements UserUseCase {
 

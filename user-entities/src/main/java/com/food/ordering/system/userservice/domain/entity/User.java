@@ -3,9 +3,9 @@ package com.food.ordering.system.userservice.domain.entity;
 import com.food.ordering.system.userservice.domain.valueobject.UserId;
 
 public class User {
-    private final UserId id;
-    private final String name;
-    private final String email;
+    private UserId id;
+    private String name;
+    private String email;
 
     public User(UserId id, String name, String email) {
         this.id = id;
@@ -17,11 +17,23 @@ public class User {
         return id;
     }
 
+    public void setId(UserId id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

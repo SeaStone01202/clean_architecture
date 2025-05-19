@@ -3,7 +3,8 @@ package com.food.ordering.system.userservice.domain.valueobject;
 import java.util.Objects;
 
 public class UserId {
-    private final Long value;
+
+    private Long value;
 
     public UserId(Long value) {
         this.value = value;
@@ -11,6 +12,10 @@ public class UserId {
 
     public Long getValue() {
         return value;
+    }
+
+    public void setValue(Long value) {
+        this.value = value;
     }
 
     @Override

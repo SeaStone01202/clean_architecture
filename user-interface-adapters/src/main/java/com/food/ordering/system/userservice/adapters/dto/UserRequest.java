@@ -5,7 +5,13 @@ public class UserRequest {
     private String name;
     private String email;
 
-    // getters/setters
+    public UserRequest() {
+    }
+
+    public UserRequest(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 
     public String getName() {
         return name;

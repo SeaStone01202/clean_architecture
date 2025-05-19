@@ -6,7 +6,10 @@ import com.food.ordering.system.userservice.adapters.mapper.UserDataMapper;
 import com.food.ordering.system.userservice.application.port.input.UserUseCase;
 import com.food.ordering.system.userservice.domain.entity.User;
 import com.food.ordering.system.userservice.domain.valueobject.UserId;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.Optional;
 
@@ -22,11 +25,11 @@ public class UserController {
         this.userDataMapper = userDataMapper;
     }
 
-    @PostMapping
-    public UserResponse create(@RequestBody UserRequest request) {
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserResponse> create(@RequestBody UserRequest request) {
         User user = userDataMapper.toUser(request);
         User created = userUseCase.createUser(user);
-        return userDataMapper.toResponse(created);
+        return ResponseEntity.status(201).body(userDataMapper.toResponse(created));
     }
 
     @GetMapping("/{id}")
