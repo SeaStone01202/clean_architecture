@@ -1,0 +1,3 @@
+com/food/ordering/system/userservice/domain/entity/User.class
+com/food/ordering/system/userservice/domain/port/output/repository/UserRepository.class
+com/food/ordering/system/userservice/domain/valueobject/UserId.class
